@@ -1,0 +1,1 @@
+/usr/local/bin/g++-10  -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/ruby/lib CMakeFiles/1480_running_sum_of_1d_array.dir/main.cpp.o  -o 1480_running_sum_of_1d_array 
