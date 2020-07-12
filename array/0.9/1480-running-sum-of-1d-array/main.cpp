@@ -24,7 +24,7 @@ Input: nums = [3,1,2,10,1]
 Output: [3,4,6,16,17]
 
 
-Constraints:
+constraints:
 
 1 <= nums.length <= 1000
 -10^6 <= nums[i] <= 10^6
@@ -33,6 +33,7 @@ Constraints:
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <cmath>
 
 using namespace std;
 
@@ -45,7 +46,7 @@ public:
 
 int main() {
     // TODO
-    // Add constraints for input array
+    // Make sure all input is valid
     string input;
     getline(cin, input);
     vector<int> nums;
@@ -53,12 +54,21 @@ int main() {
     stringstream ss(input);
 
     int n;
+    int cnt = 0;
     while (ss >> n) {
         nums.push_back(n);
+        if (++cnt > 1000) {
+            fprintf(stderr, "Constraints: 1 <= nums.length <= 1000");
+            return -1;
+        }
     }
 
     for (auto it = nums.begin(); it != nums.end(); ++it) {
-        cout << *it << ' ';
+        if (*it < -pow(10, 6) || *it > pow(10, 6)) {
+            fprintf(stderr, "Constraints: -10^6 <= nums[i] <= 10^6");
+            return -1;
+        }
+        cout << *it << endl;
     }
 
     return 0;
