@@ -40,13 +40,14 @@ using namespace std;
 class Solution {
 public:
     vector<int> runningSum(vector<int> &nums) {
+        for (int i = 1; i < nums.size(); ++i) {
+            nums[i] += nums[i - 1];
+        }
         return nums;
     }
 };
 
 int main() {
-    // TODO
-    // Make sure all input is valid
     string input;
     getline(cin, input);
     vector<int> nums;
@@ -57,19 +58,22 @@ int main() {
     int cnt = 0;
     while (ss >> n) {
         nums.push_back(n);
-        if (++cnt > 1000) {
+        cnt++;
+        if (cnt < 1 || cnt > 1000) {
             fprintf(stderr, "Constraints: 1 <= nums.length <= 1000");
             return -1;
         }
     }
 
-    for (auto it = nums.begin(); it != nums.end(); ++it) {
-        if (*it < -pow(10, 6) || *it > pow(10, 6)) {
+    for (int i = 0; i < nums.size(); ++i) {
+        if (nums[i] < -pow(10, 6) || nums[i] > pow(10, 6)) {
             fprintf(stderr, "Constraints: -10^6 <= nums[i] <= 10^6");
             return -1;
         }
-        cout << *it << endl;
     }
+
+    Solution s;
+    s.runningSum(nums);
 
     return 0;
 }
