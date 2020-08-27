@@ -77,7 +77,7 @@ int main() {
     Solution s;
     newNums = s.shuffle(nums, n);
 
-    // Test
+    // Test 
     for (int i = 0; i < newNums.size(); ++i) {
         cout << newNums[i] << endl;
     }
