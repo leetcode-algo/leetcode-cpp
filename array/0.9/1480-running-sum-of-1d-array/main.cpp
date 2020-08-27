@@ -29,6 +29,9 @@ constraints:
 
 1 <= nums.length <= 1000
 -10^6 <= nums[i] <= 10^6
+
+Time complexity O(N)
+Space complexity O(1)
 */
 
 #include <iostream>
