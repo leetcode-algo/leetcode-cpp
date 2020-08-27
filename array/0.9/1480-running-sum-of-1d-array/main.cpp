@@ -56,25 +56,25 @@ int main() {
     stringstream ss(input);
 
     int n;
-    int cnt = 0;
     while (ss >> n) {
-        nums.push_back(n);
-        cnt++;
-        if (cnt < 1 || cnt > 1000) {
-            fprintf(stderr, "Constraints: 1 <= nums.length <= 1000");
-            return -1;
-        }
-    }
-
-    for (int i = 0; i < nums.size(); ++i) {
-        if (nums[i] < -pow(10, 6) || nums[i] > pow(10, 6)) {
+        if (n < -pow(10, 6) || n > pow(10, 6)) {
             fprintf(stderr, "Constraints: -10^6 <= nums[i] <= 10^6");
             return -1;
         }
+        nums.push_back(n);
+    }
+
+    if (nums.size() < 1 || nums.size() > 1000) {
+        fprintf(stderr, "Constraints: 1 <= nums.length <= 1000");
+        return -1;
     }
 
     Solution s;
     s.runningSum(nums);
 
+    // Test
+    for (int i = 0; i < nums.size(); ++i) {
+        cout << nums[i] << " ";
+    }
     return 0;
 }
