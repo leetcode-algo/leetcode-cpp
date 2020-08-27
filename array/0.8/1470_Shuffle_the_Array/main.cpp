@@ -32,11 +32,15 @@ nums.length == 2n
 
 using namespace std;
 
-//TODO algo
 class Solution {
 public:
     vector<int> shuffle(vector<int> &nums, int n) {
-
+        vector<int> newNums;
+        for (int i = 0; i < n; ++i) {
+            newNums.push_back(nums[i]);
+            newNums.push_back(nums[i + n]);
+        }
+        return newNums;
     }
 };
 
@@ -69,5 +73,13 @@ int main() {
         return -1;
     }
 
+    vector<int> newNums;
+    Solution s;
+    newNums = s.shuffle(nums, n);
+
+    // Test
+    for (int i = 0; i < newNums.size(); ++i) {
+        cout << newNums[i] << endl;
+    }
     return 0;
 }
