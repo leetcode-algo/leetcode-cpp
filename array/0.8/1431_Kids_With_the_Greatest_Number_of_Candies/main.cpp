@@ -32,14 +32,32 @@ Constraints:
 1 <= candies[i] <= 100
 1 <= extraCandies <= 50
 
-Time complexity O()
-Space complexity O()
+Time complexity O(n)
+Space complexity O(n)
 */
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
+
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int> &candies, int extraCandies) {
+        vector<bool> result;
+        int maxValue = *max_element(candies.begin(), candies.end());
+        cout << "test " << sizeof(maxValue) << " test";
+        for (int i = 0; i < candies.size(); ++i) {
+            if (candies[i] + extraCandies >= maxValue) {
+                result.push_back(true);
+            } else {
+                result.push_back(false);
+            }
+        }
+        return result;
+    }
+};
 
 int main() {
     vector<int> candies;
@@ -71,5 +89,13 @@ int main() {
         return -1;
     }
 
+    Solution s;
+    vector<bool> result;
+    result = s.kidsWithCandies(candies, extraCandies);
+
+    // Test
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << " ";
+    }
     return 0;
 }
