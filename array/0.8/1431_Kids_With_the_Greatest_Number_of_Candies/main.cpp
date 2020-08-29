@@ -32,8 +32,8 @@ Constraints:
 1 <= candies[i] <= 100
 1 <= extraCandies <= 50
 
-Time complexity O(n)
-Space complexity O(n)
+Time complexity O(N)
+Space complexity O(N)
 */
 #include <iostream>
 #include <vector>

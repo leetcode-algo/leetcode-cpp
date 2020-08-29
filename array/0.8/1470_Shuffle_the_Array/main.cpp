@@ -26,8 +26,8 @@ Constraints:
 nums.length == 2n
 1 <= nums[i] <= 10^3
 
-Time complexity O(n)
-Space complexity O(n)
+Time complexity O(N)
+Space complexity O(N)
 */
 #include <iostream>
 #include <vector>
