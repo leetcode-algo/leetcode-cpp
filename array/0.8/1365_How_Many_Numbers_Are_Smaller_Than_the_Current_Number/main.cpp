@@ -38,6 +38,8 @@ using namespace std;
 
 class Solution {
 public:
+    // Time complexity O(n^2)
+    // Space complexity O(n)
     vector<int> smallerNumbersThanCurrent(vector<int> &nums) {
         vector<int> result;
         for (int i = 0; i < nums.size(); ++i) {
@@ -47,6 +49,20 @@ public:
                 if (nums[j] < nums[i]) ++sum;
             }
             result.push_back(sum);
+        }
+        return result;
+    }
+    // Time complexity O(nlogn)
+    // Space complexity O(n)
+    vector<int> smallerNumbersThanCurrent2(vector<int> &nums) {
+        vector<int> result;
+        vector<int> copy(nums);
+
+        sort(copy.begin(), copy.end());
+        auto it = copy.begin();
+        for (int i = 0; i < nums.size(); ++i) {
+            it = find(copy.begin(), copy.end(), nums[i]);
+            result.push_back(it - copy.begin());
         }
         return result;
     }
@@ -76,7 +92,7 @@ int main() {
     // Test
     vector<int> result;
     Solution s;
-    result = s.smallerNumbersThanCurrent(nums);
+    result = s.smallerNumbersThanCurrent2(nums);
 
     for (int i = 0; i < result.size(); ++i) {
         cout << result[i] << " ";
