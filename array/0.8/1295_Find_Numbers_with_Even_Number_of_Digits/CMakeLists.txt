@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.17)
+project(1295_Find_Numbers_with_Even_Number_of_Digits)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(1295_Find_Numbers_with_Even_Number_of_Digits main.cpp)
