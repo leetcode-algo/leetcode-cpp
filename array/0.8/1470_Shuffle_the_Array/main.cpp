@@ -25,9 +25,6 @@ Constraints:
 1 <= n <= 500
 nums.length == 2n
 1 <= nums[i] <= 10^3
-
-Time complexity O(N)
-Space complexity O(N)
 */
 #include <iostream>
 #include <vector>
@@ -37,6 +34,8 @@ using namespace std;
 
 class Solution {
 public:
+    // Time complexity O(n)
+    // Space complexity O(n)
     vector<int> shuffle(vector<int> &nums, int n) {
         vector<int> newNums;
         for (int i = 0; i < n; ++i) {
