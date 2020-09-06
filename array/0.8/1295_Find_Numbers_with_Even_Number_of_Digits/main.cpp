@@ -35,6 +35,7 @@ using namespace std;
 
 class Solution {
 public:
+    // TODO check the time complexity
     // Time complexity: O(n)
     // Space complexity: O(1)
     int findNumbers(vector<int> &nums) {
@@ -48,6 +49,15 @@ public:
             if (cnt % 2 == 0) {
                 ++result;
             }
+        }
+        return result;
+    }
+    // Time complexity: O(n)
+    // Space complexity: O(1)
+    int findNumbersBitOps(vector<int> &nums) {
+        int result = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            result += (int)log10(nums[i]) & 1;
         }
         return result;
     }
@@ -76,7 +86,7 @@ int main() {
 
     int result;
     Solution s;
-    result = s.findNumbers(nums);
+    result = s.findNumbersBitOps(nums);
 
     // Test
     cout << result << endl;
