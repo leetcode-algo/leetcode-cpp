@@ -20,8 +20,10 @@ The characters in J are distinct.
 */
 
 #include <iostream>
+#include <unordered_set>
 
 using namespace std;
+
 
 class Solution {
 public:
@@ -35,6 +37,26 @@ public:
                     ++cnt;
                     break;
                 }
+            }
+        }
+        return cnt;
+    }
+
+    void printt(const unordered_set<char> &usset) {
+        for (const auto &element : usset) {
+            cout << element;
+        }
+        std::cout << std::endl;
+    }
+
+    // Time complexity: O(J + S)
+    // Space complexity: O(1)
+    int numJewelsInStonesSet(string J, string S) {
+        int cnt = 0;
+        unordered_set<char> setJ(J.begin(), J.end());
+        for (char charS:S) {
+            if (setJ.count(charS)){
+                ++cnt;
             }
         }
         return cnt;
@@ -62,7 +84,7 @@ int main() {
 
     int result;
     Solution s;
-    result = s.numJewelsInStones(strJ, strS);
+    result = s.numJewelsInStonesSet(strJ, strS);
 
     // Test
     cout << result << endl;
